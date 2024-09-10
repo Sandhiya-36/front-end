@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script>
+            window.onload = () =>
+  document.querySelectorAll(".input-x")
+  .forEach(input=>input.addEventListener("change",calculatePrize));
+
+function calculatePrize(){
+  let sum = 0;
+  document.querySelectorAll(".input-x")
+  .forEach(input=>sum += (input.checked? 
+  Number.parseFloat(input.getAttribute("data-price")):0));
+  document.getElementById("total").value = sum;
+}
+        </script>
+    </head>
+<body>
+	<form id="BookingForm" method="get">
+        <section id="bookEvents">
+            <div class="item">
+               <input type='checkbox' class="input-x" name='event[]' value='6' data-price='18.50'>apple Rs 18
+               <input type='checkbox' class="input-x" name='event[]' value='14' data-price='13.00'>orange Rs 13 
+               <input type='checkbox' class="input-x" name='event[]' value='11' data-price='35.00'>grapes Rs 35
+               <input type='checkbox' class="input-x" name='event[]' value='9' data-price='16.00'>banana Rs 16
+            </div>
+        </section>
+        <section id="checkCost">
+            Total:
+            <input id="total" type="text" name="total" size="10" readonly>
+        </section>
+        </form>
+</body>
+</html>
